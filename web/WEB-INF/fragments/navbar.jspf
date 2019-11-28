@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}">WebCar</a>
+
+        <div class="collapse navbar-collapse navHeaderCollapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}">Główna</a></li>
+            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/add">Dodaj</a></li>
+            <c:choose>
+                <c:when test="${not empty sessionScope.user}">
+                    <li><a class="nav-link" href="${pageContext.request.contextPath}/logout">Wyloguj się</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a  class="nav-link" href="${pageContext.request.contextPath}/login">Zaloguj się</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+        </div>
+    </div>
+</nav>
